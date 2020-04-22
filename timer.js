@@ -19,6 +19,8 @@ class Timer {
             }
             this.tick();
             this.interval = setInterval(this.tick, 10);    
+            startButton.style.display = 'none';
+            pauseButton.style.display = 'block'; 
         } else {
             alert('Please introduce a time');
         }
@@ -26,6 +28,8 @@ class Timer {
 
     pause = () => {
         clearInterval (this.interval);
+        startButton.style.display = 'block';
+        pauseButton.style.display = 'none';  
     }
 
     tick = () => {
