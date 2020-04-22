@@ -13,11 +13,15 @@ class Timer {
         this.pauseButton.addEventListener('click', this.pause);
     }
     start = () => {
-        if (this.onStart) {
-            this.onStart(this.timeRemaining);
+        if (this.durationInput.value) {
+            if (this.onStart) {
+                this.onStart(this.timeRemaining);
+            }
+            this.tick();
+            this.interval = setInterval(this.tick, 10);    
+        } else {
+            alert('Please introduce a time');
         }
-        this.tick();
-        this.interval = setInterval(this.tick, 10);
     }
 
     pause = () => {
